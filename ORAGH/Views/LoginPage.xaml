@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ORAGH.Views.LoginPage" Title="Login">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Zarejestruj" Clicked="OnSignUpButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Margin="5">
+            <Image xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <OnPlatform.iOS><FileImageSource File="LogoORAGHczarneCMYK-01-212x300.png"/></OnPlatform.iOS>
+                            <OnPlatform.Android><FileImageSource File="logo_oragh_czarne_cmyk_212x300.png"/></OnPlatform.Android>
+                        </OnPlatform>
+                </Image.Source>
+            </Image>
+            <Label Text="Nazwa użytkownika" Margin="5"/>
+            <Entry x:Name="usernameEntry" />
+            <Label Text="Hasło" Margin="5"/>
+            <Entry x:Name="passwordEntry" IsPassword="true" />
+            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Label x:Name="messageLabel" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

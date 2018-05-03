@@ -1,0 +1,51 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ORAGH", "ORAGH\ORAGH.shproj", "{E501220E-3D34-4542-B6FE-9544E819E533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORAGH.iOS", "iOS\ORAGH.iOS.csproj", "{C1A3264C-C0E9-4151-A1B8-70153638C6AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORAGH.Droid", "Droid\ORAGH.Droid.csproj", "{EBB805CC-C115-49E2-821D-1630EC1FA2E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|iPhone.ActiveCfg = Release|iPhone
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|iPhone.Build.0 = Release|iPhone
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|iPhone.Build.0 = Debug|iPhone
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{C1A3264C-C0E9-4151-A1B8-70153638C6AB}.Release|Any CPU.Build.0 = Release|iPhone
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|iPhone.Build.0 = Release|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.VersionControlPolicy = $2
+	EndGlobalSection
+EndGlobal
