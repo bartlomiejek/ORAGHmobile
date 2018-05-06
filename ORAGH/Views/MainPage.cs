@@ -59,12 +59,11 @@ namespace ORAGH
 
         async Task CallApi()
         {
-            var nsAPI = RestService.For<IMakeUpApi>("http://makeup-api.herokuapp.com");
-            var sugars = await nsAPI.GetMakeUps();
+            
 
             var oraghAPI = RestService.For<IOraghApi>("http://192.168.1.103/forumnew");
-            var users = await oraghAPI.GetUsers(); 
-            User user = await oraghAPI.GetUser("JKS"); 
+           // var users = await oraghAPI.GetUsers(); 
+            var user = await oraghAPI.GetUser("JKS"); 
         }
     }
 }

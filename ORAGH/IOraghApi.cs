@@ -13,6 +13,6 @@ namespace ORAGH
         Task<List<User>> GetUsers();
 
         [Get("/api.php/user/list?apikey=473c076a5c815b70ae9f59ac0800cfaa&username={username}")]
-        Task<User> GetUser(string username);//Task<user> - sprawdźić kodowanie api
+        Task<string> GetUser(string username);//Task<user> - sprawdźić kodowanie api
     }
 }
