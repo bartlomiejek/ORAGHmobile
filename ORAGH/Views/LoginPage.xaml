@@ -14,10 +14,10 @@
                 </Image.Source>
             </Image>
             <Label Text="Nazwa użytkownika" Margin="5"/>
-            <Entry x:Name="usernameEntry" />
+            <Entry Text="{Binding Username}" x:Name="usernameEntry" />
             <Label Text="Hasło" Margin="5"/>
-            <Entry x:Name="passwordEntry" IsPassword="true" />
-            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Entry Text="{Binding Password}" x:Name="passwordEntry" IsPassword="true" />
+            <Button Command = "{Binding LoginCommand}" Text="Login" />
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>

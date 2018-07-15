@@ -9,12 +9,12 @@ namespace ORAGH
     {
         public MainPage()
         {
-            Page itemsPage, aboutPage = null;
+         //   Page itemsPage, aboutPage = null;
 
-            switch (Device.RuntimePlatform)
+         /*   switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    itemsPage = new NavigationPage(new ItemsPage())
+                   itemsPage = new NavigationPage(new ItemsPage())
                     {
                         Title = "Browse"
                     };
@@ -37,12 +37,11 @@ namespace ORAGH
                         Title = "About"
                     };
                     break;
-            }
 
             Children.Add(itemsPage);
             Children.Add(aboutPage);
 
-            Title = Children[0].Title;
+            Title = Children[0].Title;*/
         }
 
         protected override void OnCurrentPageChanged()
@@ -54,16 +53,18 @@ namespace ORAGH
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await CallApi(); 
+     //       await CallApi(); 
         }
 
-        async Task CallApi()
-        {
+ //       async Task CallApi()
+ //       {
             
 
-            var oraghAPI = RestService.For<IOraghApi>("http://192.168.1.103/forumnew");
-           // var users = await oraghAPI.GetUsers(); 
-            var user = await oraghAPI.GetUser("JKS"); 
-        }
+          //  var oraghAPI = RestService.For<IOraghApi>("http://192.168.1.104/forumnew");
+			// var users = await oraghAPI.GetUsers(); 
+		//	var result = await oraghAPI.Authenticate("JKS", "niemam"); 
+//var user = await oraghAPI.GetUser("JKS"); 
+           
+   //     }
     }
 }

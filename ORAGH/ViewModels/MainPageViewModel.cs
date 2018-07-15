@@ -6,26 +6,56 @@ using System.Windows.Input;
 using ORAGH.Models;
 using Refit;
 using Xamarin.Forms;
-using ORAGH.Services; 
+using ORAGH.Services;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ORAGH.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+	public class MainPageViewModel : BaseViewModel
     {
-        public MainPageViewModel()
-        {
-            GetDataCommand = new Command(async () => await GetData());
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<MakeUp> MakeUps { get; set; }
+		public ObservableCollection<MakeUp> MakeUps { get; set; }
+		public ObservableCollection<User> Users { get; set; }
         public ICommand GetDataCommand { get; set; }
+		public ICommand GetUserCommand { get; set; }
+
+		public MainPageViewModel()
+		{
+			GetDataCommand = new Command(async () => await GetData());
+			GetUserCommand = new Command(async () => await GetUser()); 
+		}
 
         async Task GetData()
         {
-            var apiResponse = RestService.For<IMakeUpApi>("http://makeup-api.herokuapp.com");
-            var makeUps = await apiResponse.GetMakeUps("maybelline");
+			var makeUpsResponse = await ApiManager.GetMakeUps("meybelline");
 
-            MakeUps = new ObservableCollection<MakeUp>(makeUps);
+			if (makeUpsResponse.IsSuccessStatusCode)
+			{
+				var response = await makeUpsResponse.Content.ReadAsStringAsync();
+				var json = await Task.Run(() => JsonConvert.DeserializeObject<List<MakeUp>>(response));
+				MakeUps = new ObservableCollection<MakeUp>(json);
+			}
+			else
+			{
+				await PageDialog.AlertAsync("Unable to get data", "Error", "Ok");
+			}
         }
+        
+		async Task GetUser()
+		{
+			var userResponse = await ApiManager.GetUser("JKS"); 
+
+			if( userResponse.IsSuccessStatusCode)
+			{
+				var response = await userResponse.Content.ReadAsStringAsync();
+				var json = await Task.Run(() => JsonConvert.DeserializeObject<User>(response));
+				Users = new ObservableCollection<User>();
+				Users.Add(json); 
+            }
+			else 
+			{
+				await PageDialog.AlertAsync("Unable to get data", "Error", "Ok"); 
+			}
+		}
     }
 }

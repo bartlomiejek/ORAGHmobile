@@ -18,11 +18,6 @@ namespace ORAGH
         {
             InitializeComponent();
 
-            if (UseMockDataStore)
-                DependencyService.Register<MockDataStore>();
-            else
-                DependencyService.Register<CloudDataStore>();
-            
             if (_isLogged)
             {
                 if (Device.RuntimePlatform == Device.iOS)
