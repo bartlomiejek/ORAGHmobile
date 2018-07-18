@@ -83,7 +83,7 @@ namespace ORAGH.Services.Implementation
 			return await task; 
 		}
 
-		public Task<HttpResponseMessage> GetForums()
+		public async Task<HttpResponseMessage> GetForums()
         {
 			var cts = new CancellationTokenSource();
 			var task = RemoteRequestAsync<HttpResponseMessage>(oraghApi.GetApi(Priority.UserInitiated).GetForums());

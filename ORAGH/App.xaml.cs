@@ -1,37 +1,63 @@
 ﻿using System;
-
 using Xamarin.Forms;
-using ORAGH.Views; 
+using ORAGH.Views;
+using Prism.Unity;
+using Prism.Modularity; 
+using Prism.Ioc;
+using ORAGH.ViewModels;
+using Prism;
 
 namespace ORAGH
 {
-    public partial class App : Application
-    {
-        public static bool UseMockDataStore = false;
-        public static string BackendUrl = "https://localhost:5000";
+    public partial class App : PrismApplication
+	{
+		//public App() {
+		//	InitializeComponent(); 
+		//}
+		public App(IPlatformInitializer initializer = null) : base(initializer){
+			
+		}
+        
+		protected override void OnInitialized()
+		{
+			InitializeComponent();
+			NavigationService.NavigateAsync("MainPage");
+		}
 
-        #region to consieder
-        static bool _isLogged = false; 
-        #endregion
+		protected override void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			containerRegistry.RegisterForNavigation<NavigationPage>();
+			containerRegistry.RegisterForNavigation<MainPage>();
 
-        public App()
-        {
-            InitializeComponent();
+			//containerRegistry.RegisterForNavigation<CustomNavigationPage>(); 
+			//containerRegistry.RegisterForNavigation<SecActiveTopicsPage, SecActiveTopicsPageViewModel>();
+			//containerRegistry.RegisterForNavigation<SecOrchestra>(); 
+		}
+        //public static bool UseMockDataStore = false;
+        //public static string BackendUrl = "https://localhost:5000";
 
-            if (_isLogged)
-            {
-                if (Device.RuntimePlatform == Device.iOS)
-                    MainPage = new MainPage();
-                else
-                    MainPage = new NavigationPage(new MainPage());
-            }
-            else
-            {
-                if (Device.RuntimePlatform == Device.iOS)
-                    MainPage = new LoginPage();
-                else
-                    MainPage = new NavigationPage(new LoginPage());
-            }
-        }
-    }
+        //#region to consieder
+        //static bool _isLogged = false; 
+        //#endregion
+
+        //public App()
+        //{
+        //    InitializeComponent();
+
+        //    if (_isLogged)
+        //    {
+        //        if (Device.RuntimePlatform == Device.iOS)
+        //            MainPage = new MainPage();
+        //        else
+        //            MainPage = new NavigationPage(new MainPage());
+        //    }
+        //    else
+        //    {
+        //        if (Device.RuntimePlatform == Device.iOS)
+        //            MainPage = new LoginPage();
+        //        else
+        //            MainPage = new NavigationPage(new LoginPage());
+        //    }
+        //}   
+	}
 }

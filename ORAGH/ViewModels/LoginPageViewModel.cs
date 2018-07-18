@@ -53,7 +53,7 @@ namespace ORAGH.ViewModels
 			if(authResponse.IsSuccessStatusCode)
 			{
 				_isLogged = true; 
-				PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs("IsLogged")); 
+				//base.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs("IsLogged")); 
             }
 			else 
 			{

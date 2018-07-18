@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORAGH.iOS", "iOS\ORAGH.iOS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORAGH.Droid", "Droid\ORAGH.Droid.csproj", "{EBB805CC-C115-49E2-821D-1630EC1FA2E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{2472BADE-B3FB-445D-B972-E7BB747BCCC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationModule", "AuthenticationModule\AuthenticationModule.csproj", "{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -41,11 +45,26 @@ Global
 		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBB805CC-C115-49E2-821D-1630EC1FA2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|iPhone.Build.0 = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
 		$0.VersionControlPolicy = $2
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2DC0CDFB-F4A6-4FD8-A862-34778ED1462F} = {2472BADE-B3FB-445D-B972-E7BB747BCCC9}
 	EndGlobalSection
 EndGlobal

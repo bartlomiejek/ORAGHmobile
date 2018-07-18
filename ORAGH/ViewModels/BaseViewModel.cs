@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using Acr.UserDialogs;
 using ORAGH.Services;
 using ORAGH.Services.Implementation;
+using Prism.Mvvm;
 using Xamarin.Forms;
 
 namespace ORAGH
 {
-    public class BaseViewModel : INotifyPropertyChanged
+	public class BaseViewModel : BindableBase, INotifyPropertyChanged 
     {
         public IUserDialogs PageDialog = UserDialogs.Instance;
         public IApiManager ApiManager;
