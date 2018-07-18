@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ORAGH.Views.LoginPage" Title="Login">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ORAGH.Views.LoginPage" 
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             Title="Login">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Zarejestruj" Clicked="OnSignUpButtonClicked" />
     </ContentPage.ToolbarItems>

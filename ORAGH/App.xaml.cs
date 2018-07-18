@@ -21,16 +21,17 @@ namespace ORAGH
 		protected override void OnInitialized()
 		{
 			InitializeComponent();
-			NavigationService.NavigateAsync("MainPage");
+			NavigationService.NavigateAsync("LoginPage");
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<NavigationPage>();
 			containerRegistry.RegisterForNavigation<MainPage>();
+			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>(); 
 
 			//containerRegistry.RegisterForNavigation<CustomNavigationPage>(); 
-			//containerRegistry.RegisterForNavigation<SecActiveTopicsPage, SecActiveTopicsPageViewModel>();
+			containerRegistry.RegisterForNavigation<SecActiveTopicsPage>();
 			//containerRegistry.RegisterForNavigation<SecOrchestra>(); 
 		}
         //public static bool UseMockDataStore = false;

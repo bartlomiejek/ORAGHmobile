@@ -1,9 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using ORAGH.ViewModels; 
-
+using ORAGH.ViewModels;
+using Prism.Navigation;
 using Xamarin.Forms;
+
 
 namespace ORAGH.Views
 {
@@ -14,19 +15,19 @@ namespace ORAGH.Views
         {
 			//LoginPageViewModel _loginPageViewModel = new LoginPageViewModel();
 			//this.BindingContext = _loginPageViewModel;
-			//this.InitializeComponent();
+			InitializeComponent();
+            
+			usernameEntry.Completed += (object sender, EventArgs e) =>
+			{
+				//_loginPageViewModel.Username = usernameEntry.Text; 
+				passwordEntry.Focus();
+			};
 
-			//usernameEntry.Completed += (object sender, EventArgs e) =>
-			//{
-			//	//_loginPageViewModel.Username = usernameEntry.Text; 
-			//	passwordEntry.Focus();
-			//};
-
-			//passwordEntry.Completed += (object sender, EventArgs e) =>
-			//{
-			////	_loginPageViewModel.Password = passwordEntry.Text;
-			//	_loginPageViewModel.LoginCommand.Execute(null);
-			//};
+			passwordEntry.Completed += (object sender, EventArgs e) =>
+			{
+			//	_loginPageViewModel.Password = passwordEntry.Text;
+				//_loginPageViewModel.LoginCommand.Execute(null);
+			};
         }
 
         void OnSignUpButtonClicked(object sender, System.EventArgs e)
@@ -37,18 +38,19 @@ namespace ORAGH.Views
         void OnLoginButtonClicked(object sender, System.EventArgs e)
         {
 			
-   //         if (Device.RuntimePlatform == Device.iOS)
-			//{
+            if (Device.RuntimePlatform == Device.iOS)
+			{
 				
-				////_loginPageViewModel.Username = usernameEntry;
-				////_loginPageViewModel.Password = passwordEntry; 
+				//_loginPageViewModel.Username = usernameEntry;
+				//_loginPageViewModel.Password = passwordEntry; 
 
-				//Navigation.PushModalAsync(new NavigationPage(new MainPage()));            
-           // }   
-           // //   MainPage = new MainPage();
-           // else
-           //     Navigation.PushAsync(new MainPage());
-           ////     MainPage = new NavigationPage(new MainPage());
+				//Navigation.PushModalAsync(new NavigationPage(new MainPage()));    
+                //INavigationService.
+            }   
+            //   MainPage = new MainPage();
+            else
+                Navigation.PushAsync(new MainPage());
+           //     MainPage = new NavigationPage(new MainPage());
         }
 
 
