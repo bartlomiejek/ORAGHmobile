@@ -17,6 +17,6 @@ namespace ORAGH.Services.Implementation
             }
         }
 
-		public static string ApiOraghUrl = "http://192.168.1.103/forumnew"; //TODO
+		public static string ApiOraghUrl = "http://192.168.0.101/forumnew";
     }
 }

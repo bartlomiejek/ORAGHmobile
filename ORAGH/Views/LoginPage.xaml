@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ORAGH.Views.LoginPage" 
-             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-             Title="Login">
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Zarejestruj" Clicked="OnSignUpButtonClicked" />
     </ContentPage.ToolbarItems>
@@ -17,11 +16,16 @@
                         </OnPlatform>
                 </Image.Source>
             </Image>
-            <Label Text="Nazwa użytkownika" Margin="5"/>
-            <Entry Text="{Binding Username}" x:Name="usernameEntry" />
-            <Label Text="Hasło" Margin="5"/>
-            <Entry Text="{Binding Password}" x:Name="passwordEntry" IsPassword="true" />
-            <Button Command = "{Binding LoginCommand}" Text="Login" />
+            <Entry Text="{Binding Username}" 
+                   x:Name="usernameEntry" 
+                   Placeholder="Login" 
+                   HorizontalOptions="FillAndExpand" />
+            <Entry Text="{Binding Password}" 
+                   x:Name="passwordEntry" 
+                   Placeholder="Hasło" 
+                   HorizontalOptions="FillAndExpand"
+                   IsPassword="true" />
+            <Button Command = "{Binding LoginCommand}" Text="Zaloguj" />
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>

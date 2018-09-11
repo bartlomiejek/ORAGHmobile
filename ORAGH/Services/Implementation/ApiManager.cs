@@ -35,12 +35,12 @@ namespace ORAGH.Services.Implementation
             _connectivity.ConnectivityChanged += OnConnectivityChanged;
         }
 
-	    //public ApiManager( IApiService<IOraghApi> _oraghApi)
-		//{
-		//	oraghApi = _oraghApi;
-		//	IsConnected = _connectivity.IsConnected;
-		//	_connectivity.ConnectivityChanged += OnConnectivityChanged; 
-		//}
+	    public ApiManager( IApiService<IOraghApi> _oraghApi)
+	    {
+	    	oraghApi = _oraghApi;
+	    	IsConnected = _connectivity.IsConnected;
+	    	_connectivity.ConnectivityChanged += OnConnectivityChanged; 
+	    }
 
         void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
@@ -74,7 +74,7 @@ namespace ORAGH.Services.Implementation
 			runningTasks.Add(task.Id, cts); 
 			return await task; 
 		}
-
+        
 		public async Task<HttpResponseMessage> GetUser(string username)
 		{
 			var cts = new CancellationTokenSource();

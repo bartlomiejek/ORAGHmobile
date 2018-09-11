@@ -1,64 +1,49 @@
 ﻿using System;
 using Xamarin.Forms;
 using ORAGH.Views;
+using ORAGH.ViewModels;
 using Prism.Unity;
 using Prism.Modularity; 
 using Prism.Ioc;
-using ORAGH.ViewModels;
 using Prism;
 
 namespace ORAGH
 {
     public partial class App : PrismApplication
 	{
-		//public App() {
-		//	InitializeComponent(); 
-		//}
-		public App(IPlatformInitializer initializer = null) : base(initializer){
-			
-		}
+		public App(IPlatformInitializer initializer = null) : base(initializer){}
         
 		protected override void OnInitialized()
 		{
-			InitializeComponent();
-			NavigationService.NavigateAsync("LoginPage");
+			InitializeComponent(); 
+		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
+			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/LoginPage/", System.UriKind.Absolute));
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<NavigationPage>();
-			containerRegistry.RegisterForNavigation<MainPage>();
-			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>(); 
+			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+			//containerRegistry.RegisterForNavigation<CustomNavigationPage>();
+			//containerRegistry.RegisterForNavigation<SecActiveTopicsPage>();
+			//containerRegistry.RegisterForNavigation<SecOrchestraPage>();
+			//containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
 
-			//containerRegistry.RegisterForNavigation<CustomNavigationPage>(); 
-			containerRegistry.RegisterForNavigation<SecActiveTopicsPage>();
-			//containerRegistry.RegisterForNavigation<SecOrchestra>(); 
+			containerRegistry.RegisterForNavigation<CustomTabbedPage>();
+			containerRegistry.RegisterForNavigation<Test1Page, Test1PageViewModel>();
+			//containerRegistry.RegisterForNavigation<Test2Page>();
 		}
-        //public static bool UseMockDataStore = false;
-        //public static string BackendUrl = "https://localhost:5000";
 
-        //#region to consieder
-        //static bool _isLogged = false; 
-        //#endregion
-
-        //public App()
+		//protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         //{
-        //    InitializeComponent();
-
-        //    if (_isLogged)
-        //    {
-        //        if (Device.RuntimePlatform == Device.iOS)
-        //            MainPage = new MainPage();
-        //        else
-        //            MainPage = new NavigationPage(new MainPage());
-        //    }
-        //    else
-        //    {
-        //        if (Device.RuntimePlatform == Device.iOS)
-        //            MainPage = new LoginPage();
-        //        else
-        //            MainPage = new NavigationPage(new LoginPage());
-        //    }
-        //}   
+        //    Type authenticationModuleType = typeof(AuthenticationModule.AuthenticationModule);
+        //    moduleCatalog.AddModule(
+        //     new ModuleInfo(authenticationModuleType)
+        //     {
+        //         ModuleName = authenticationModuleType.Name,
+        //         InitializationMode = InitializationMode.OnDemand
+        //     });
+        //}
 	}
 }

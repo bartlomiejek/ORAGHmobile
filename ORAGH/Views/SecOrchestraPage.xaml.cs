@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace ORAGH.Views
 {
-    public partial class SecOrchestra : ContentPage
+    public partial class SecOrchestraPage : ContentPage
     {
-        public SecOrchestra()
+        public SecOrchestraPage()
         {
             InitializeComponent();
         }
