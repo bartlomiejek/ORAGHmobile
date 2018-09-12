@@ -14,7 +14,7 @@ using Prism.Mvvm;
 
 namespace ORAGH.ViewModels
 {
-	public class MainPageViewModel : BaseViewModel, INavigatedAware
+	public class MainPageViewModel : BaseViewModel//, INavigatedAware
 	{
 
 		INavigationService _navigationService;
@@ -32,7 +32,7 @@ namespace ORAGH.ViewModels
 			_navigationService = navigationService;
 			//GetDataCommand = new Command(async () => await GetData());
 			//GetUserCommand = new Command(async () => await GetUser()); 
-		//	GetForumsCommand = new Command(async () => await GetForum()); 
+			//GetForumsCommand = new Command(async () => await GetForum()); 
 		}
 
 		async Task GetForum()

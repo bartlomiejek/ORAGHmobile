@@ -18,6 +18,9 @@ namespace ORAGH.Services
         Task<HttpResponseMessage> Authenticate(string username, string password);
 
         [Get("/api.php/forum/list?apikey=473c076a5c815b70ae9f59ac0800cfaa")]
-        Task<HttpResponseMessage> GetForums(); 
+        Task<HttpResponseMessage> GetForums();
+
+		[Get("/api.php/forum/threads/5?apikey=473c076a5c815b70ae9f59ac0800cfaa")] //TODO - active threads
+		Task<HttpResponseMessage> GetActiveThreads(); 
     }
 }

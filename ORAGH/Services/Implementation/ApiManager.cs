@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
@@ -89,6 +90,24 @@ namespace ORAGH.Services.Implementation
 			var task = RemoteRequestAsync<HttpResponseMessage>(oraghApi.GetApi(Priority.UserInitiated).GetForums());
 			runningTasks.Add(task.Id, cts);
 			return await task; 
+        }
+
+		public async Task<HttpResponseMessage> GetActiveThreads()
+		{
+			var cts = new CancellationTokenSource(); 
+			var task = RemoteRequestAsync<HttpResponseMessage>(oraghApi.GetApi(Priority.UserInitiated).GetActiveThreads());
+			runningTasks.Add(task.Id, cts);
+			return await task;
+		}
+
+		public string FixOraghApiResponse(string response)
+        {
+			string pattern = @"""\d+"":{";
+            Regex regex = new Regex(pattern);
+            string result = regex.Replace(response, "{");
+            result = result.Replace("{{", "[{");
+            result = result.Replace("}}", "}]"); 
+            return result;
         }
 
 		protected async Task<TData> RemoteRequestAsync<TData>(Task<TData> task)

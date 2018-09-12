@@ -19,7 +19,8 @@ namespace ORAGH
         public IApiManager ApiManager;
         
         IApiService<IMakeUpApi> makeUpApi = new ApiService<IMakeUpApi>(ApiConfig.ApiUrl);
-		IApiService<IOraghApi> oraghApi = new ApiService<IOraghApi>(ApiConfig.ApiOraghUrl); 
+		IApiService<IOraghApi> oraghApi = new ApiService<IOraghApi>(ApiConfig.ApiOraghUrl);
+
 
 		bool isBusy = false;
         public bool IsBusy
@@ -75,16 +76,14 @@ namespace ORAGH
             set { SetProperty(ref title, value); }
         }
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName]string propertyName = "",
-            Action onChanged = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
-                return false;
+        //protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName]string propertyName = "",Action onChanged = null)
+        //{
+        //    if (EqualityComparer<T>.Default.Equals(backingStore, value))
+        //        return false;
 
-            backingStore = value;
-            onChanged?.Invoke();
-            return true;
-        }
+        //    backingStore = value;
+        //    onChanged?.Invoke();
+        //    return true;
+        //}
 	}
 }

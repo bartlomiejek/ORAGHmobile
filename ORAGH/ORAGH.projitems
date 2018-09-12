@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Test1PageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModelAdroidTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Thread.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />

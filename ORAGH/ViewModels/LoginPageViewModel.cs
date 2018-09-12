@@ -14,7 +14,7 @@ namespace ORAGH.ViewModels
     {
 		INavigationService _navigationService; 
 		public ICommand LoginCommand { get; set; }
-		public event EventHandler IsActiveChanged;
+		//public event EventHandler IsActiveChanged;
 
 		protected bool _isLogged = false; 
 		public bool IsLogged
@@ -72,7 +72,7 @@ namespace ORAGH.ViewModels
         async Task GoHome()
 		{
 			await _navigationService.NavigateAsync(
-				new Uri($"MainPage?selectedTab=SecActiveTopicsPage", UriKind.Relative)); 
+				new Uri($"MainPage?selectedTab=HomePage", UriKind.Relative)); 
 		}
     }
 }

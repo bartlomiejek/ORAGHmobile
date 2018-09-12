@@ -10,6 +10,8 @@ namespace ORAGH.Services
         Task<HttpResponseMessage> GetMakeUps(string brand);
 		Task<HttpResponseMessage> AuthoriseUser(string name, string password);
 		Task<HttpResponseMessage> GetUser(string username);
-		Task<HttpResponseMessage> GetForums(); 
+		Task<HttpResponseMessage> GetForums();
+		Task<HttpResponseMessage> GetActiveThreads(); 
+		string FixOraghApiResponse(string response);
     }
 }

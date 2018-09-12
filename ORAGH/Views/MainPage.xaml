@@ -3,8 +3,9 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             x:Class="ORAGH.Views.MainPage"
             xmlns:local="clr-namespace:ORAGH.Views"
-            Title="Komunikator ORAGH">
+            Title="ORAGHmobile">
     <TabbedPage.Children>
-        <local:HomePage />
+        <local:SecActiveTopicsPage/>
+        <local:HomePage/>
     </TabbedPage.Children>
 </TabbedPage>

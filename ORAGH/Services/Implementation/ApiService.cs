@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using Fusillade;
 using ModernHttpClient;
 using ORAGH.Services;
@@ -41,17 +42,17 @@ namespace ORAGH.Services.Implementation
             }
         }
 
-        private T Speculative 
-        {
-            get
-            {
-                return new Lazy<T>(() => createClient(
-                    new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.Speculative))).Value;
-                
-            }
-        }
+        private T Speculative
+		{
+			get
+			{
+				return new Lazy<T>(() => createClient(
+					new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.Speculative))).Value;
 
-        public T GetApi(Priority priority)
+			}
+		}
+
+		public T GetApi(Priority priority)
         {
             switch (priority)
             {

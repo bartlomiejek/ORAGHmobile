@@ -44,7 +44,7 @@ namespace ORAGH.ViewModels
             }
             else
             {
-             //   await PageDialog.AlertAsync("Unable to get forum data", "Error", "Ok");
+                await PageDialog.AlertAsync("Unable to get forum data", "Error", "Ok");
             }
         }
 	}
