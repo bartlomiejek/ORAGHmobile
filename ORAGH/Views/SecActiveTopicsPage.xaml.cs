@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using ORAGH.ViewModels; 
 using Xamarin.Forms;
+using Prism.Navigation; 
 
 namespace ORAGH.Views
 {
-    public partial class SecActiveTopicsPage : ContentPage
+	public partial class SecActiveTopicsPage : ContentPage, IDestructible
     {
         public SecActiveTopicsPage()
         {
@@ -16,7 +17,12 @@ namespace ORAGH.Views
 		{
 			base.OnAppearing();
 			var vm = this.BindingContext as SecActiveTopicsPageViewModel;
-			vm.GetActiveThreadsCommand.Execute(null);
+			//vm.GetActiveThreadsCommand.Execute(null);
    		}
+
+		public void Destroy()
+        {
+			ListViewThreads.Behaviors.Clear();
+        }
     }
 }

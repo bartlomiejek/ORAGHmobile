@@ -10,11 +10,10 @@ using Xamarin.Forms;
 
 namespace ORAGH.ViewModels
 {
-	public class LoginPageViewModel : BaseViewModel //: BindableBase
+	public class LoginPageViewModel : BaseViewModel
     {
 		INavigationService _navigationService; 
 		public ICommand LoginCommand { get; set; }
-		//public event EventHandler IsActiveChanged;
 
 		protected bool _isLogged = false; 
 		public bool IsLogged

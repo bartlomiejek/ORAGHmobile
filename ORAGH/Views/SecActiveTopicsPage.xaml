@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="ORAGH.Views.SecActiveTopicsPage"
-             Title="Aktywne tematy"
-             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Unity.Forms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:ORAGH.Views"
-             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
-    <ContentPage.Content>
-        <ListView Margin="0,0,20,0" ItemsSource="{Binding ActiveThreads}">
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:converters="clr-namespace:ORAGH.Converters;assembly=ORAGH"
+             x:Class="ORAGH.Views.SecActiveTopicsPage"
+             Title="Aktywne tematy">
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Label Text="{Binding Title}" />
+        
+        <ListView Grid.Row="1" 
+                  x:Name="ListViewThreads"
+                  ItemsSource="{Binding ActiveThreads}">
+            <ListView.Behaviors>
+                              <b:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding GoToPostsPageCommand}"
+                                          EventArgsConverter="{converters:ItemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
-                    <Label Text="{Binding subject}" />
+                    <Grid>
+                        <Label Grid.Column="0" Text="{Binding subject}" TextColor="Black"/>
+                        <Label Grid.Column="1" Text="{Binding tid}" TextColor="Black"/>
+                    </Grid>
                 </ViewCell>
               </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

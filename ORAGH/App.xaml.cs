@@ -18,7 +18,9 @@ namespace ORAGH
 			InitializeComponent(); 
 		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/LoginPage/", System.UriKind.Absolute));
-			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=SecActiveTopicsPage/", System.UriKind.Absolute));
+			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=SecActiveTopicsPage/", System.UriKind.Absolute));
+			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage?title=EventToCommand%20Demo", System.UriKind.Absolute));
+			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute));
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -26,14 +28,17 @@ namespace ORAGH
 			containerRegistry.RegisterForNavigation<NavigationPage>();
 			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
 			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-			//containerRegistry.RegisterForNavigation<CustomNavigationPage>();
+			containerRegistry.RegisterForNavigation<PostsPage>();          
 			containerRegistry.RegisterForNavigation<SecActiveTopicsPage, SecActiveTopicsPageViewModel>();
+
+
 			//containerRegistry.RegisterForNavigation<SecOrchestraPage>();
 			//containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
 
-			containerRegistry.RegisterForNavigation<CustomTabbedPage>();
-			containerRegistry.RegisterForNavigation<Test1Page, Test1PageViewModel>();
+//			containerRegistry.RegisterForNavigation<CustomTabbedPage>();
+	//		containerRegistry.RegisterForNavigation<Test1Page, Test1PageViewModel>();
 			//containerRegistry.RegisterForNavigation<Test2Page>();
+			//containerRegistry.RegisterForNavigation<CustomNavigationPage>();
 		}
 
 		//protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
