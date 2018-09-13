@@ -10,7 +10,7 @@ namespace ORAGH.ViewModels
 		public PostsPageViewModel()
 		{
 		}
-
+        
 		private Thread _thread;
 		public Thread ThreadDetails
 		{

@@ -6,10 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using ORAGH.Services; 
+//using ORAGH.Services; 
 using Prism;
 using Prism.Ioc;
 using Acr.UserDialogs;
+using Prism.Unity;
+using Microsoft.Practices.Unity;
 
 namespace ORAGH.Droid
 {

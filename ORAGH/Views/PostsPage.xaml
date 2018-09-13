@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="test"
+             Title="{Binding ThreadDetails.subject}"
              x:Class="ORAGH.Views.PostsPage">
     <ContentPage.Content>
     </ContentPage.Content>

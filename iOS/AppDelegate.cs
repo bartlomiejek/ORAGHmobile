@@ -5,6 +5,7 @@ using Prism;
 using Prism.Ioc;
 
 
+
 namespace ORAGH.iOS
 {
 	[Register("AppDelegate")]
@@ -20,7 +21,7 @@ namespace ORAGH.iOS
 
 		public class iOSInitializer : IPlatformInitializer
 		{
-			public void RegisterTypes(IContainerRegistry containerRegistry)
+			public void RegisterTypes(IContainerRegistry container)
 			{
 				
 			}

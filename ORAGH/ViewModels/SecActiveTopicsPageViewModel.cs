@@ -17,36 +17,36 @@ namespace ORAGH.ViewModels
 	public class SecActiveTopicsPageViewModel : BaseViewModel, INavigationAware
     {
 		INavigationService _navigationService;
-		private DelegateCommand<ThreadView> _goToPostPage; 
-        private ObservableCollection<ThreadView> _activeThreads; 
-		private string _title;
+		private DelegateCommand<Thread> _goToPostPage; 
+        private ObservableCollection<Thread> _activeThreads; 
+		//private string _title;
 
 		public ICommand GetActiveThreadsCommand { get; set; }
-		public ObservableCollection<ThreadView> ActiveThreads  
+		public ObservableCollection<Thread> ActiveThreads  
 		{
 			get { return _activeThreads; }
 			set { SetProperty(ref _activeThreads, value); }
 		}
        
-		public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
-		public DelegateCommand<ThreadView> GoToPostsPageCommand => _goToPostPage ?? (_goToPostPage = new DelegateCommand<ThreadView>(GoToPostsPage));
+		//public string Title
+  //      {
+  //          get { return _title; }
+  //          set { SetProperty(ref _title, value); }
+  //      }
 
 		public SecActiveTopicsPageViewModel(INavigationService navigationService)
         {
-			_navigationService = navigationService;
-			GetActiveThreadsCommand = new Command(async () => await RunSafe(GetActiveThreads(), true, "Pobieranie danych"));
+            _navigationService = navigationService;
+            GetActiveThreadsCommand = new Command(async () => await RunSafe(GetActiveThreads(), true, "Pobieranie danych"));
 
-			ActiveThreads = new ObservableCollection<ThreadView>()
-			{
-				new ThreadView() { subject = "Test1", tid = "1"}, 
-				new ThreadView() { subject = "Test2", tid = "2"}, 
-			}; 
+            //ActiveThreads = new ObservableCollection<Thread>()
+            //{
+            //    new Thread() { subject = "Test1", tid = "1"},
+            //    new Thread() { subject = "Test2", tid = "2"},
+            //};
         }
+
+		public DelegateCommand<Thread> GoToPostsPageCommand => _goToPostPage ?? (_goToPostPage = new DelegateCommand<Thread>(GoToPostsPage));
        
 		async Task GetActiveThreads()
 		{
@@ -57,7 +57,7 @@ namespace ORAGH.ViewModels
 				var response = await activeThreadsResponse.Content.ReadAsStringAsync();
 				response = ApiManager.FixOraghApiResponse(response);
                 var json = JsonConvert.DeserializeObject<List<Thread>>(response);
-			//	ActiveThreads = new ObservableCollection<Thread>(json);
+				ActiveThreads = new ObservableCollection<Thread>(json);
             }
             else
             {
@@ -65,13 +65,13 @@ namespace ORAGH.ViewModels
             }
 		}
         
-		public async void GoToPostsPage(ThreadView paramData)
+		public async void GoToPostsPage(Thread paramData)
 		{
 			var parameters = new NavigationParameters
 			{
 				{ "subject", paramData}
 			};
-			await _navigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute), parameters);
+			await _navigationService.NavigateAsync(new System.Uri("/PostsPage/", System.UriKind.Relative), parameters);
 
 		}
 
@@ -87,8 +87,8 @@ namespace ORAGH.ViewModels
         
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-			if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
+			//if (parameters.ContainsKey("title"))
+                //Title = (string)parameters["title"] + " and Prism";
         }
 	}
 }

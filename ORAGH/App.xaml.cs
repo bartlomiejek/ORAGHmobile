@@ -18,8 +18,8 @@ namespace ORAGH
 			InitializeComponent(); 
 		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/LoginPage/", System.UriKind.Absolute));
-			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=SecActiveTopicsPage/", System.UriKind.Absolute));
-			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage?title=EventToCommand%20Demo", System.UriKind.Absolute));
+			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=SecActiveTopicsPage/", System.UriKind.Absolute));
+			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute));
 		}
 
