@@ -52,12 +52,12 @@ namespace ORAGH.ViewModels
 
 		public void OnNavigatedFrom(NavigationParameters parameters)
 		{
-			//throw new NotImplementedException();
+			
 		}
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
-			//throw new NotImplementedException();
+			
 		}
 		      async Task GetData()
 		      {

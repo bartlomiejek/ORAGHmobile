@@ -31,13 +31,13 @@ namespace ORAGH
 				SetProperty(ref isBusy, value);
 			}
 		}
-
+        
         public BaseViewModel()
         {
 			ApiManager = new ApiManager(makeUpApi, oraghApi);
         }
 
-		public async Task RunSafe(Task task, bool ShowLoading = true, string loadinMessage = null)
+		public async Task RunSafe(Task task, bool ShowLoading = true, string loadinMessage = null )
 		{
 			try
 			{
@@ -47,10 +47,10 @@ namespace ORAGH
 				}
 
 				IsBusy = true; 
-
+                
                 if (ShowLoading)
 				{
-					UserDialogs.Instance.ShowLoading(loadinMessage ?? "Loading");
+					PageDialog.ShowLoading(loadinMessage ?? "Loading");
 				}
 
 				await task; 
@@ -58,26 +58,15 @@ namespace ORAGH
 			catch(Exception e)
 			{
 				isBusy = false;
-				UserDialogs.Instance.HideLoading();
+				PageDialog.HideLoading();
 				Debug.WriteLine(e.ToString());
 				await Application.Current.MainPage.DisplayAlert("Serwer nie odpowiada", "Sprawdź połączenie sieciowe lub skontaktuj się z administratorem", "Ok"); 
 			}
 			finally
 			{
 				IsBusy = false;
-				if (ShowLoading) UserDialogs.Instance.HideLoading(); 
+				if (ShowLoading) PageDialog.HideLoading(); 
 			}
 		}
-
-     
-        //protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName]string propertyName = "",Action onChanged = null)
-        //{
-        //    if (EqualityComparer<T>.Default.Equals(backingStore, value))
-        //        return false;
-
-        //    backingStore = value;
-        //    onChanged?.Invoke();
-        //    return true;
-        //}
 	}
 }

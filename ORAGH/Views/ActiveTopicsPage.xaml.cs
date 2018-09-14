@@ -6,9 +6,9 @@ using Prism.Navigation;
 
 namespace ORAGH.Views
 {
-	public partial class SecActiveTopicsPage : ContentPage//, IDestructible
+	public partial class ActiveTopicsPage : ContentPage
     {
-        public SecActiveTopicsPage()
+        public ActiveTopicsPage()
         {
             InitializeComponent();
         }
@@ -16,13 +16,8 @@ namespace ORAGH.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			var vm = this.BindingContext as SecActiveTopicsPageViewModel;
+			var vm = this.BindingContext as ActiveTopicsPageViewModel;
 			vm.GetActiveThreadsCommand.Execute(null);
-   		}
-
-		//public void Destroy()
-   //     {
-			//ListViewThreads.Behaviors.Clear();
-        //}
+		}
     }
 }

@@ -18,7 +18,7 @@ namespace ORAGH
 			InitializeComponent(); 
 		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/LoginPage/", System.UriKind.Absolute));
-			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=SecActiveTopicsPage/", System.UriKind.Absolute));
+			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/MainPage?selectedTab=ActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute));
 		}
@@ -29,10 +29,10 @@ namespace ORAGH
 			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
 			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
 			containerRegistry.RegisterForNavigation<PostsPage>();          
-			containerRegistry.RegisterForNavigation<SecActiveTopicsPage, SecActiveTopicsPageViewModel>();
+			containerRegistry.RegisterForNavigation<ActiveTopicsPage, ActiveTopicsPageViewModel>();
 
 
-			//containerRegistry.RegisterForNavigation<SecOrchestraPage>();
+			containerRegistry.RegisterForNavigation<SecOrchestraPage>();
 			//containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
 
 //			containerRegistry.RegisterForNavigation<CustomTabbedPage>();

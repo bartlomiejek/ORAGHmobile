@@ -10,43 +10,32 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Xamarin.Forms;
-
+using Prism.Services;
 
 namespace ORAGH.ViewModels
 {
-	public class SecActiveTopicsPageViewModel : BaseViewModel, INavigationAware
+	public class ActiveTopicsPageViewModel : BaseViewModel, INavigationAware
     {
 		INavigationService _navigationService;
-		private DelegateCommand<Thread> _goToPostPage; 
-        private ObservableCollection<Thread> _activeThreads; 
-		//private string _title;
+		IPageDialogService _dialogService; 
+		private DelegateCommand<ThreadViewData> _goToPostPage; 
+        private ObservableCollection<ThreadViewData> _activeThreads; 
 
 		public ICommand GetActiveThreadsCommand { get; set; }
-		public ObservableCollection<Thread> ActiveThreads  
+		public ObservableCollection<ThreadViewData> ActiveThreads  
 		{
 			get { return _activeThreads; }
 			set { SetProperty(ref _activeThreads, value); }
 		}
-       
-		//public string Title
-  //      {
-  //          get { return _title; }
-  //          set { SetProperty(ref _title, value); }
-  //      }
-
-		public SecActiveTopicsPageViewModel(INavigationService navigationService)
+      
+		public ActiveTopicsPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
         {
             _navigationService = navigationService;
+			_dialogService = dialogService; 
             GetActiveThreadsCommand = new Command(async () => await RunSafe(GetActiveThreads(), true, "Pobieranie danych"));
-
-            //ActiveThreads = new ObservableCollection<Thread>()
-            //{
-            //    new Thread() { subject = "Test1", tid = "1"},
-            //    new Thread() { subject = "Test2", tid = "2"},
-            //};
         }
 
-		public DelegateCommand<Thread> GoToPostsPageCommand => _goToPostPage ?? (_goToPostPage = new DelegateCommand<Thread>(GoToPostsPage));
+		public DelegateCommand<ThreadViewData> GoToPostsPageCommand => _goToPostPage ?? (_goToPostPage = new DelegateCommand<ThreadViewData>(GoToPostsPage));
        
 		async Task GetActiveThreads()
 		{
@@ -57,23 +46,30 @@ namespace ORAGH.ViewModels
 				var response = await activeThreadsResponse.Content.ReadAsStringAsync();
 				response = ApiManager.FixOraghApiResponse(response);
                 var json = JsonConvert.DeserializeObject<List<Thread>>(response);
-				ActiveThreads = new ObservableCollection<Thread>(json);
+
+				ActiveThreads = new ObservableCollection<ThreadViewData>(); 
+				ActiveThreads.Clear(); 
+				foreach(var thread in json)
+				{
+					ActiveThreads.Add(new ThreadViewData(thread)); 
+				}
             }
             else
             {
-                await PageDialog.AlertAsync("Wystąpił problem podczas pobierania danych", "Błąd", "Ok");
+				await _dialogService.DisplayAlertAsync("Wystąpił problem podczas pobierania danych", "Błąd", "Ok");
             }
 		}
         
-		public async void GoToPostsPage(Thread paramData)
+		public async void GoToPostsPage(ThreadViewData paramData)
 		{
 			var parameters = new NavigationParameters
 			{
-				{ "subject", paramData}
+				{ "Tid", paramData}
 			};
-			await _navigationService.NavigateAsync(new System.Uri("/PostsPage/", System.UriKind.Relative), parameters);
-
+			await _navigationService.NavigateAsync(new System.Uri("/PostsPage/", System.UriKind.Relative), parameters);         
 		}
+
+
 
 		public void OnNavigatedFrom(NavigationParameters parameters)
         {
@@ -87,8 +83,7 @@ namespace ORAGH.ViewModels
         
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-			//if (parameters.ContainsKey("title"))
-                //Title = (string)parameters["title"] + " and Prism";
+			
         }
 	}
 }

@@ -7,9 +7,9 @@ namespace ORAGH.Views
 {
     public partial class PostsPage : ContentPage
     {
-        public PostsPage()
-        {
-            InitializeComponent();
-        }
-    }
+		public PostsPage()
+		{
+			InitializeComponent();
+		}
+	}
 }

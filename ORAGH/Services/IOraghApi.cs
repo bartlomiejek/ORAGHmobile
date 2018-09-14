@@ -8,19 +8,22 @@ namespace ORAGH.Services
 {
     public interface IOraghApi
     {
-        [Get("/api.php/user/list?apikey=473c076a5c815b70ae9f59ac0800cfaa")]
+		[Get("/api.php/user/list?apikey=0c7a707c37748d5c09a5f7581ed7aa2c")]
         Task<List<User>> GetUsers();
 
-        [Get("/api.php/user/list?apikey=473c076a5c815b70ae9f59ac0800cfaa&username={username}")]
+		[Get("/api.php/user/list?apikey=0c7a707c37748d5c09a5f7581ed7aa2c&username={username}")]
         Task<HttpResponseMessage> GetUser(string username);
 
-        [Get("/api.php/authenticate?apikey=473c076a5c815b70ae9f59ac0800cfaa&username={username}&password={password}")]
+		[Get("/api.php/authenticate?apikey=0c7a707c37748d5c09a5f7581ed7aa2c&username={username}&password={password}")]
         Task<HttpResponseMessage> Authenticate(string username, string password);
 
-        [Get("/api.php/forum/list?apikey=473c076a5c815b70ae9f59ac0800cfaa")]
+		[Get("/api.php/forum/list?apikey=0c7a707c37748d5c09a5f7581ed7aa2c")]
         Task<HttpResponseMessage> GetForums();
 
-		[Get("/api.php/forum/threads/5?apikey=473c076a5c815b70ae9f59ac0800cfaa")] //TODO - active threads
-		Task<HttpResponseMessage> GetActiveThreads(); 
+		[Get("/api.php/thread/latestactive/0?output=json&apikey=0c7a707c37748d5c09a5f7581ed7aa2c")] //TODO - active threads
+		Task<HttpResponseMessage> GetActiveThreads();
+
+		[Get("/api.php/thread/posts/{threadId}?output=json&apikey=0c7a707c37748d5c09a5f7581ed7aa2c")]
+		Task<HttpResponseMessage> GetPosts(string threadId); 
     }
 }

@@ -3,8 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="{Binding ThreadDetails.subject}"
+             Title="{Binding ThreadDetails.Subject}"
              x:Class="ORAGH.Views.PostsPage">
     <ContentPage.Content>
+            <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+         
+        <ListView x:Name="ListViewPosts"
+                  ItemsSource="{Binding Posts}">
+<!--            <ListView.Behaviors>
+                           <b:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding GoToPostsPageCommand}"
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>-->
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>                 
+                     <Grid>
+                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding message}" TextColor="Black"/>
+                        <Label Grid.Row="1" Text="{Binding username}" TextColor="Green"/>
+                    </Grid>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
     </ContentPage.Content>
 </ContentPage>

@@ -4,7 +4,7 @@
              x:Class="ORAGH.Views.LoginPage" 
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Zarejestruj" Clicked="OnSignUpButtonClicked" />
+       <!-- <ToolbarItem Text="Zarejestruj" Clicked="OnSignUpButtonClicked" />-->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="StartAndExpand" Margin="5">

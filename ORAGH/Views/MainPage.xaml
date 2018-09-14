@@ -2,10 +2,10 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             x:Class="ORAGH.Views.MainPage"
-            xmlns:local="clr-namespace:ORAGH.Views"
-            Title="ORAGHmobile">
+            xmlns:local="clr-namespace:ORAGH.Views">
     <TabbedPage.Children>
-        <local:SecActiveTopicsPage/>
+        <local:ActiveTopicsPage/>
+        <local:SecOrchestraPage/>
         <local:HomePage/>
     </TabbedPage.Children>
 </TabbedPage>

@@ -6,13 +6,15 @@ using ORAGH.Models;
 using Prism; 
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using Xamarin.Forms;
 
 namespace ORAGH.ViewModels
 {
 	public class LoginPageViewModel : BaseViewModel
     {
-		INavigationService _navigationService; 
+		INavigationService _navigationService;
+		IPageDialogService _dialogService;
 		public ICommand LoginCommand { get; set; }
 
 		protected bool _isLogged = false; 
@@ -46,9 +48,10 @@ namespace ORAGH.ViewModels
        
 		public bool IsActive { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		public LoginPageViewModel(INavigationService navigationService)
+		public LoginPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
         {
-			_navigationService = navigationService; 
+			_navigationService = navigationService;
+			_dialogService = dialogService;
 			LoginCommand = new Command(async () => await RunSafe(Login(), true, "Autoryzacja"));
         }
         
@@ -59,7 +62,8 @@ namespace ORAGH.ViewModels
 			if (!authResponse.IsSuccessStatusCode)
 			{
 				_isLogged = false;
-				await PageDialog.AlertAsync("Nieprawidłowy login lub hasło.", "", "Ok");
+				await _dialogService.DisplayAlertAsync("Błąd autoryzacji", "Nieprawidłowy login lub hasło.", "Ok"); 
+				//throw new Exception("Nieprawidłowy login lub hasło.");
 			}
 			else
 			{

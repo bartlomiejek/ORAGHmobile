@@ -36,10 +36,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\SecOrchestraPage.xaml.cs">
       <DependentUpon>SecOrchestraPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\SecActiveTopicsPage.xaml.cs">
-      <DependentUpon>SecActiveTopicsPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ActiveTopicsPage.xaml.cs">
+      <DependentUpon>ActiveTopicsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SecActiveTopicsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ActiveTopicsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\CustomNavigationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Events\UpdateNavBarEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
@@ -59,7 +59,9 @@
       <DependentUpon>PostsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PostsPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\ThreadView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ThreadViewData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Post.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Implementation\ApiDataParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
@@ -75,7 +77,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SecActiveTopicsPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ActiveTopicsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

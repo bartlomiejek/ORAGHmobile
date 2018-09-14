@@ -4,32 +4,39 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:ORAGH.Views"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-             xmlns:c="clr-namespace:Prism.Converters;assembly=Prism.Forms"
-             x:Class="ORAGH.Views.SecActiveTopicsPage"
+             xmlns:c="clr-namespace:ORAGH.Converters;"
+             x:Class="ORAGH.Views.ActiveTopicsPage"
              Title="Aktywne tematy">
-    <Grid RowSpacing="0" ColumnSpacing="0">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-
+         
         <ListView x:Name="ListViewThreads"
                   ItemsSource="{Binding ActiveThreads}">
             <ListView.Behaviors>
                            <b:EventToCommandBehavior EventName="ItemTapped" 
                                           Command="{Binding GoToPostsPageCommand}"
-                                          EventArgsParameterPath="Item" />
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
               <DataTemplate>
-                <ViewCell>
-                   <Grid>
-                        <Label Grid.Column="0" Text="{Binding subject}" TextColor="Black"/>
-                        <Label Grid.Column="1" Text="{Binding tid}" TextColor="Black"/>
+                <ViewCell>                 
+                     <Grid>
+                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Subject}" TextColor="Black"/>
+                        <Label Grid.Column="1" Grid.Row="0" Text="" TextColor="Blue"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Lastposter}" TextColor="Green"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding LastPostDate}" TextColor="Gray"/>
                     </Grid>
                 </ViewCell>
               </DataTemplate>
-            </ListView.ItemTemplate>-->
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </ContentPage>
