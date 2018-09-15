@@ -63,7 +63,6 @@ namespace ORAGH.ViewModels
 			{
 				_isLogged = false;
 				await _dialogService.DisplayAlertAsync("Błąd autoryzacji", "Nieprawidłowy login lub hasło.", "Ok"); 
-				//throw new Exception("Nieprawidłowy login lub hasło.");
 			}
 			else
 			{

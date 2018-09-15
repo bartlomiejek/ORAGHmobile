@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
-//using System.Windows.Input;
 using Newtonsoft.Json;
 using ORAGH.Models;
 using Prism.Mvvm;
@@ -25,12 +24,12 @@ namespace ORAGH.ViewModels
 
 		public void OnNavigatedFrom(NavigationParameters parameters)
 		{
-			//throw new NotImplementedException();
+			
 		}
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
-			//throw new NotImplementedException();
+
 		}
 
 		async Task GetForum()

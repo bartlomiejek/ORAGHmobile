@@ -1,27 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using ORAGH.Services;
 using ORAGH.Services.Implementation;
 using Prism.Mvvm;
-using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace ORAGH
 {
 	public class BaseViewModel : BindableBase
     {
+		IApiService<IOraghApi> oraghApi = new ApiService<IOraghApi>(ApiConfig.ApiOraghUrl);
 		public IUserDialogs PageDialog = UserDialogs.Instance;
         public IApiManager ApiManager;
-        
-        IApiService<IMakeUpApi> makeUpApi = new ApiService<IMakeUpApi>(ApiConfig.ApiUrl);
-		IApiService<IOraghApi> oraghApi = new ApiService<IOraghApi>(ApiConfig.ApiOraghUrl);
-
-
+       
 		bool isBusy = false;
         public bool IsBusy
 		{
@@ -34,7 +27,7 @@ namespace ORAGH
         
         public BaseViewModel()
         {
-			ApiManager = new ApiManager(makeUpApi, oraghApi);
+			ApiManager = new ApiManager(oraghApi);
         }
 
 		public async Task RunSafe(Task task, bool ShowLoading = true, string loadinMessage = null )

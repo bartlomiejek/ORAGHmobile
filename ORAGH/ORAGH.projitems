@@ -19,7 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\MakeUp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IMakeUpApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IApiService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Implementation\ApiService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Implementation\ApiManager.cs" />

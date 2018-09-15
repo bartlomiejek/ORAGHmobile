@@ -1,7 +1,4 @@
-﻿using System;
-using Prism;
-using Prism.Mvvm;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Navigation;
 using ORAGH.Models;
 using System.Collections.ObjectModel;
@@ -68,8 +65,6 @@ namespace ORAGH.ViewModels
 			};
 			await _navigationService.NavigateAsync(new System.Uri("/PostsPage/", System.UriKind.Relative), parameters);         
 		}
-
-
 
 		public void OnNavigatedFrom(NavigationParameters parameters)
         {

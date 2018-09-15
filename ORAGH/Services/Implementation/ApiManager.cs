@@ -8,8 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Fusillade;
-using ORAGH.Models;
-using ORAGH.Services;
 using Plugin.Connectivity;
 using Plugin.Connectivity.Abstractions;
 using Polly;
@@ -21,28 +19,19 @@ namespace ORAGH.Services.Implementation
     {
         IUserDialogs _userDialogs = UserDialogs.Instance;
         IConnectivity _connectivity = CrossConnectivity.Current;
-        IApiService<IMakeUpApi> makeUpApi;
 		IApiService<IOraghApi> oraghApi; 
         public bool IsConnected { get; set; }
         public bool IsReachable { get; set; }
         Dictionary<int, CancellationTokenSource> runningTasks = new Dictionary<int, CancellationTokenSource>();
         Dictionary<string, Task<HttpResponseMessage>> taskContainer = new Dictionary<string, Task<HttpResponseMessage>>(); 
 
-		public ApiManager( IApiService<IMakeUpApi> _makeUpApi, IApiService<IOraghApi> _oraghApi) 
+		public ApiManager( IApiService<IOraghApi> _oraghApi) 
         {
-            makeUpApi = _makeUpApi; 
 			oraghApi = _oraghApi;
             IsConnected = _connectivity.IsConnected;
             _connectivity.ConnectivityChanged += OnConnectivityChanged;
         }
-
-	    public ApiManager( IApiService<IOraghApi> _oraghApi)
-	    {
-	    	oraghApi = _oraghApi;
-	    	IsConnected = _connectivity.IsConnected;
-	    	_connectivity.ConnectivityChanged += OnConnectivityChanged; 
-	    }
-
+        
         void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             IsConnected = e.IsConnected; 
@@ -58,16 +47,7 @@ namespace ORAGH.Services.Implementation
                 }
             }
         }
-
-        public async Task<HttpResponseMessage> GetMakeUps(string brand)
-        {
-            var cts = new CancellationTokenSource();
-            var task = RemoteRequestAsync<HttpResponseMessage>(makeUpApi.GetApi(Priority.UserInitiated).GetMakeUps(brand));
-            runningTasks.Add(task.Id, cts);
-
-            return await task; 
-        }
-
+        
 		public async Task<HttpResponseMessage> AuthoriseUser(string name, string password)
 		{
 			var cts = new CancellationTokenSource();

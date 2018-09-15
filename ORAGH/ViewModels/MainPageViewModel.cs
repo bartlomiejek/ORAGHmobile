@@ -23,14 +23,12 @@ namespace ORAGH.ViewModels
 		public ObservableCollection<MakeUp> MakeUps { get; set; }
 		public ObservableCollection<User> Users { get; set; }
 		public Dictionary<string, Forum> Forums { get => _forums; set => _forums = value; }
-		//      public ICommand GetDataCommand { get; set; }
 		//public ICommand GetUserCommand { get; set; }
 		public ICommand GetForumsCommand { get; set; }
 		public MainPageViewModel(INavigationService navigationService)
 		{
 
 			_navigationService = navigationService;
-			//GetDataCommand = new Command(async () => await GetData());
 			//GetUserCommand = new Command(async () => await GetUser()); 
 			//GetForumsCommand = new Command(async () => await GetForum()); 
 		}
@@ -59,21 +57,6 @@ namespace ORAGH.ViewModels
 		{
 			
 		}
-		      async Task GetData()
-		      {
-			var makeUpsResponse = await ApiManager.GetMakeUps("meybelline");
-
-			if (makeUpsResponse.IsSuccessStatusCode)
-			{
-				var response = await makeUpsResponse.Content.ReadAsStringAsync();
-				var json = await Task.Run(() => JsonConvert.DeserializeObject<List<MakeUp>>(response));
-				MakeUps = new ObservableCollection<MakeUp>(json);
-			}
-			else
-			{
-				await PageDialog.AlertAsync("Unable to get data", "Error", "Ok");
-			}
-		      }
 
 		async Task GetUser()
 		{
