@@ -2,10 +2,13 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             x:Class="ORAGH.Views.MainPage"
-            xmlns:local="clr-namespace:ORAGH.Views">
+            xmlns:local="clr-namespace:ORAGH.Views"
+            BarBackgroundColor="Black"
+            Padding="10"
+            Title="Aktywne tematy">
     <TabbedPage.Children>
-        <local:ActiveTopicsPage/>
-        <local:SecOrchestraPage/>
-        <local:HomePage/>
+        <local:ActiveTopicsPage Icon="bell.png" Title="Aktywne tematy"/>   
+        <local:SecOrchestraPage Icon="oragh_icon.png" Title="Dział orkiestry"/>
+        <local:HomePage Icon="ball.png" Title="Dział rozrywki"/>
     </TabbedPage.Children>
 </TabbedPage>

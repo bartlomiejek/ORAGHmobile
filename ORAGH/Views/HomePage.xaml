@@ -5,7 +5,7 @@
              Title="Dział rozrywki">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
-            <Label Text="Welcome" 
+            <Label Text="Strona w budowie" 
                  VerticalOptions="CenterAndExpand" 
                  HorizontalOptions="CenterAndExpand"/>
         

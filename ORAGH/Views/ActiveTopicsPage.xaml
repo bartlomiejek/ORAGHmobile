@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:ORAGH.Views"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              xmlns:c="clr-namespace:ORAGH.Converters;"
-             x:Class="ORAGH.Views.ActiveTopicsPage"
-             Title="Aktywne tematy">
+             x:Class="ORAGH.Views.ActiveTopicsPage">
      <ContentPage.Resources>
         <ResourceDictionary>
             <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
@@ -19,7 +18,8 @@
         </Grid.RowDefinitions>
          
         <ListView x:Name="ListViewThreads"
-                  ItemsSource="{Binding ActiveThreads}">
+                  ItemsSource="{Binding ActiveThreads}"
+                  Footer="">
             <ListView.Behaviors>
                            <b:EventToCommandBehavior EventName="ItemTapped" 
                                           Command="{Binding GoToPostsPageCommand}"

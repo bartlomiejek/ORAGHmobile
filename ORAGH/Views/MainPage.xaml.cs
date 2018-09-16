@@ -5,32 +5,34 @@ using Prism.Navigation;
 
 namespace ORAGH.Views
 {
-	public partial class MainPage : TabbedPage, INavigatedAware
+	public partial class MainPage : TabbedPage//, INavigatedAware
     {
         public MainPage()
         {
-            InitializeComponent();
+			InitializeComponent();
+			this.CurrentPageChanged += CurrentPageHasChanged; 
         }
 
-		public void OnNavigatedFrom(NavigationParameters parameters)
-		{
-			//throw new NotImplementedException();
-		}
+		protected void CurrentPageHasChanged(object sender, EventArgs e) 
+		{ 
+			this.Title = this.CurrentPage.Title;        
+		} 
 
 		//public void OnNavigatedFrom(NavigationParameters parameters)
 		//{
-		//	throw new NotImplementedException();
+		//	//throw new NotImplementedException();
+		//}
+       
+
+		//public void OnNavigatedTo(NavigationParameters parameters)
+		//{
+		////	throw new NotImplementedException();
 		//}
 
-		public void OnNavigatedTo(NavigationParameters parameters)
-		{
-		//	throw new NotImplementedException();
-		}
-
-		public void OnNavigatingTo(NavigationParameters parameters)
-		{
-		//	throw new NotImplementedException();
-		}
+		//public void OnNavigatingTo(NavigationParameters parameters)
+		//{
+		////	throw new NotImplementedException();
+		//}
        
 	}
 }

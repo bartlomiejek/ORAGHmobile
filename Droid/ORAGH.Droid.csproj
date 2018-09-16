@@ -250,6 +250,18 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_oragh_czarne_cmyk_212x300.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\logo_oragh_czarne_cmyk_212x300.png" />
     <AndroidResource Include="Resources\drawable-hdpi\logo_oragh_czarne_cmyk_212x300.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\bell.png" />
+    <AndroidResource Include="Resources\drawable\bell.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bell.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bell.png" />
+    <AndroidResource Include="Resources\drawable\oragh_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\oragh_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\oragh_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\oragh_icon.png" />
+    <AndroidResource Include="Resources\drawable\ball.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ball.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ball.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ball.png" />
   </ItemGroup>
   <Import Project="..\ORAGH\ORAGH.projitems" Label="Shared" Condition="Exists('..\ORAGH\ORAGH.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

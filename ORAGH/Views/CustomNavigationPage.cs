@@ -11,32 +11,32 @@ namespace ORAGH.Views
 		public CustomNavigationPage(IEventAggregator eventAggregator)
 		{
 			_eventAggregator = eventAggregator;
-
+            this.BarBackgroundColor = Color.DarkRed;
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			_eventAggregator.GetEvent<UpdateNavBarEvent>().Subscribe(UpdateColor);
+			//_eventAggregator.GetEvent<UpdateNavBarEvent>().Subscribe(UpdateTitle);
 		}
 
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-			_eventAggregator.GetEvent<UpdateNavBarEvent>().Unsubscribe(UpdateColor);
+		//	_eventAggregator.GetEvent<UpdateNavBarEvent>().Unsubscribe(UpdateTitle);
 		}
 
-		void UpdateColor(bool isShowingTheLoging)
-		{
-			if (isShowingTheLoging)
-			{
-				this.BarBackgroundColor = Color.Black;
-			}
-			else
-			{
-				this.BarBackgroundColor = Color.Red;
-			}
-
-		}
+		//void UpdateTitle(string title)
+		//{
+		//	this.Title = title; 
+		//	//if (isShowingTheLoging)
+		//	//{
+		//	//	this.BarBackgroundColor = Color.Black;
+		//	//}
+		//	//else
+		//	//{
+		//	//	this.BarBackgroundColor = Color.Red;
+		//	//}
+		//}
 	}
 }

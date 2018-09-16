@@ -4,4 +4,11 @@
              x:Class="ORAGH.Views.SecOrchestraPage"
              Title="Dział orkiestry"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms">
+    <ContentPage.Content>
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
+        <Label Text="Strona w budowie" 
+             VerticalOptions="CenterAndExpand" 
+             HorizontalOptions="CenterAndExpand"/>
+         </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

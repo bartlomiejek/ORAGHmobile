@@ -13,7 +13,8 @@
         </Grid.RowDefinitions>
          
         <ListView x:Name="ListViewPosts"
-                  ItemsSource="{Binding Posts}">
+                  ItemsSource="{Binding Posts}"
+                  Footer="">
 <!--            <ListView.Behaviors>
                            <b:EventToCommandBehavior EventName="ItemTapped" 
                                           Command="{Binding GoToPostsPageCommand}"
@@ -23,8 +24,8 @@
               <DataTemplate>
                 <ViewCell>                 
                      <Grid>
-                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding message}" TextColor="Black"/>
-                        <Label Grid.Row="1" Text="{Binding username}" TextColor="Green"/>
+                        <Label Grid.Row="0" Text="{Binding message}" TextColor="Black"/>
+                        <Label Grid.Row="1" Text="{Binding username}" FontSize="Micro" TextColor="Green"/>
                     </Grid>
                 </ViewCell>
               </DataTemplate>

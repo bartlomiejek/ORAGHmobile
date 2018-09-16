@@ -222,6 +222,15 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <BundleResource Include="Resources\LogoORAGHczarneCMYK-01-212x300.png" />
+    <BundleResource Include="Resources\bell.png" />
+    <BundleResource Include="Resources\bell%402x.png" />
+    <BundleResource Include="Resources\bell%403x.png" />
+    <BundleResource Include="Resources\oragh_icon3030.png" />
+    <BundleResource Include="Resources\oragh_icon.png" />
+    <BundleResource Include="Resources\oragh_icon%40x3.png" />
+    <BundleResource Include="Resources\ball.png" />
+    <BundleResource Include="Resources\ball_icon%40x2.png" />
+    <BundleResource Include="Resources\ball_icon%40x3.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />

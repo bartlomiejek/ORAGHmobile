@@ -12,11 +12,11 @@ namespace ORAGH.Views
 {
     public partial class LoginPage : ContentPage
     {
-		IEventAggregator _eventAggregator;
+		//IEventAggregator _eventAggregator;
         public LoginPage(IEventAggregator eventAggregator)
         {
 			InitializeComponent();
-			_eventAggregator = eventAggregator;
+		//	_eventAggregator = eventAggregator;
 			//usernameEntry.Completed += (object sender, EventArgs e) =>
 			//{
 			//	passwordEntry.Focus();
@@ -35,13 +35,13 @@ namespace ORAGH.Views
 		protected override void OnAppearing()
         {
             base.OnAppearing();
-            _eventAggregator.GetEvent<UpdateNavBarEvent>().Publish(true);
+          //  _eventAggregator.GetEvent<UpdateNavBarEvent>().Publish(true);
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            _eventAggregator.GetEvent<UpdateNavBarEvent>().Publish(false);
+         //   _eventAggregator.GetEvent<UpdateNavBarEvent>().Publish(false);
         }
     }
 }
