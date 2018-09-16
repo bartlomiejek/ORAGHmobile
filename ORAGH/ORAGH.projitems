@@ -32,8 +32,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\SecOrchestraPage.xaml.cs">
-      <DependentUpon>SecOrchestraPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OrchestraPage.xaml.cs">
+      <DependentUpon>OrchestraPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ActiveTopicsPage.xaml.cs">
       <DependentUpon>ActiveTopicsPage.xaml</DependentUpon>
@@ -41,10 +41,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ActiveTopicsPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\CustomNavigationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Events\UpdateNavBarEvent.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EntertainmentPage.xaml.cs">
+      <DependentUpon>EntertainmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EntertainmentPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\CustomTabbedPage.xaml.cs">
       <DependentUpon>CustomTabbedPage.xaml</DependentUpon>
     </Compile>
@@ -72,7 +72,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SecOrchestraPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OrchestraPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EntertainmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

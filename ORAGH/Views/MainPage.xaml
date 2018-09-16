@@ -8,7 +8,7 @@
             Title="Aktywne tematy">
     <TabbedPage.Children>
         <local:ActiveTopicsPage Icon="bell.png" Title="Aktywne tematy"/>   
-        <local:SecOrchestraPage Icon="oragh_icon.png" Title="Dział orkiestry"/>
-        <local:HomePage Icon="ball.png" Title="Dział rozrywki"/>
+        <local:OrchestraPage Icon="oragh_icon.png" Title="Dział orkiestry"/>
+        <local:EntertainmentPage Icon="ball.png" Title="Dział rozrywki"/>
     </TabbedPage.Children>
 </TabbedPage>

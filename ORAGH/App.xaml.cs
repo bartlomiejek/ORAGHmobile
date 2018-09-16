@@ -26,19 +26,18 @@ namespace ORAGH
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<NavigationPage>();
+			containerRegistry.RegisterForNavigation<CustomNavigationPage>();
 			containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
-			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-			containerRegistry.RegisterForNavigation<PostsPage>();          
-			containerRegistry.RegisterForNavigation<ActiveTopicsPage, ActiveTopicsPageViewModel>();
-
-
-			containerRegistry.RegisterForNavigation<SecOrchestraPage>();
-			//containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();	        
+			containerRegistry.RegisterForNavigation<ActiveTopicsPage, ActiveTopicsPageViewModel>();         
+			containerRegistry.RegisterForNavigation<OrchestraPage>();
+			containerRegistry.RegisterForNavigation<EntertainmentPage, EntertainmentPageViewModel>();
+			containerRegistry.RegisterForNavigation<PostsPage>();  
 
 //			containerRegistry.RegisterForNavigation<CustomTabbedPage>();
 	//		containerRegistry.RegisterForNavigation<Test1Page, Test1PageViewModel>();
 			//containerRegistry.RegisterForNavigation<Test2Page>();
-			containerRegistry.RegisterForNavigation<CustomNavigationPage>();
+
 		}
 
 		//protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

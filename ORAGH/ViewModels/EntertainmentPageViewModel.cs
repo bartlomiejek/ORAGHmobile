@@ -9,7 +9,7 @@ using Prism.Navigation;
 
 namespace ORAGH.ViewModels
 {
-	public class HomePageViewModel : BaseViewModel, INavigatedAware
+	public class EntertainmentPageViewModel : BaseViewModel, INavigatedAware
     {
 		INavigationService _navigationService;
 		private Dictionary<string, Forum> _forums;
@@ -17,7 +17,7 @@ namespace ORAGH.ViewModels
 		public Dictionary<string, Forum> Forums { get => _forums; set => _forums = value; }
 
 		public ICommand GetForumsCommand { get; set; }
-		public HomePageViewModel(INavigationService navigationService)
+		public EntertainmentPageViewModel(INavigationService navigationService)
         {
 			_navigationService = navigationService;
         }
