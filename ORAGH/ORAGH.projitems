@@ -57,6 +57,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\CreatePostResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PostViewData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrchestraPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ThreadsPage.xaml.cs">
+      <DependentUpon>ThreadsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ThreadsPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
@@ -81,6 +85,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PostsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ThreadsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

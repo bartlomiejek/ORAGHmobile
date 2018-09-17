@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using ORAGH.Views;
 using ORAGH.ViewModels;
 using Prism.Unity;
-using Prism.Modularity; 
 using Prism.Ioc;
 using Prism;
 
@@ -17,7 +16,7 @@ namespace ORAGH
 		{
 			InitializeComponent(); 
 		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
-			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/CustomNavigationPage/LoginPage/", System.UriKind.Absolute));
+			NavigationService.NavigateAsync(new Uri("http://ORAGHmobile/CustomNavigationPage/LoginPage/", UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/CustomNavigationPage/MainPage?selectedTab=ActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute));
@@ -32,6 +31,7 @@ namespace ORAGH
 			containerRegistry.RegisterForNavigation<ActiveTopicsPage, ActiveTopicsPageViewModel>();
 			containerRegistry.RegisterForNavigation<OrchestraPage>();
 			containerRegistry.RegisterForNavigation<EntertainmentPage, EntertainmentPageViewModel>();
+			containerRegistry.RegisterForNavigation<ThreadsPage>(); 
 			containerRegistry.RegisterForNavigation<PostsPage>();
 		}
 	}

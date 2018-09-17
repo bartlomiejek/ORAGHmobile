@@ -61,7 +61,7 @@ namespace ORAGH.ViewModels
 		{
 			var parameters = new NavigationParameters
 			{
-				{ "Tid", paramData}
+				{ "ThreadViewData", paramData}
 			};
 			await _navigationService.NavigateAsync(new System.Uri("/PostsPage/", System.UriKind.Relative), parameters);         
 		}

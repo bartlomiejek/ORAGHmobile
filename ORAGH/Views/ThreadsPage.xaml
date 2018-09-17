@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:ORAGH.Views"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:c="clr-namespace:ORAGH.Converters;"
+             x:Class="ORAGH.Views.ThreadsPage"
+             Title="{Binding Title}">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+         
+        <ListView x:Name="ListViewThreads"
+                  ItemsSource="{Binding Threads}"
+                  Footer="">
+            <ListView.Behaviors>
+                           <b:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding GoToPostsPageCommand}"
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>                 
+                     <Grid>
+                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Subject}" FontSize="Small" TextColor="Black"/>
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Forumname}" FontSize="Small" TextColor="DarkRed"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Lastposter}" FontSize="Micro" TextColor="Green"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding LastPostDate}" FontSize="Micro" TextColor="Gray"/>
+                    </Grid>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

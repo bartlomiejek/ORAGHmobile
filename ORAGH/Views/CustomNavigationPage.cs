@@ -1,6 +1,4 @@
-﻿using System;
-using ORAGH.Events;
-using Prism.Events;
+﻿using Prism.Events;
 using Xamarin.Forms;
 
 namespace ORAGH.Views

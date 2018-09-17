@@ -48,7 +48,43 @@ namespace ORAGH.ViewModels
 
 		public async void GoToChildForum(Forum forum)
 		{
+			List<Forum> forumChilds = new List<Forum>();
+			bool forumHasChilds = false; 
+
 			var forumChildsResponse = await ApiManager.GetForumChilds(forum.Fid);
+			if (forumChildsResponse.IsSuccessStatusCode)
+            {
+                var response = await forumChildsResponse.Content.ReadAsStringAsync();
+                response = ApiManager.FixOraghApiResponse(response);
+
+                try
+				{
+					forumChilds = JsonConvert.DeserializeObject<List<Forum>>(response);
+					if (forumChilds.Count > 0)
+					{
+						forumHasChilds = true; 
+					}
+                }
+				catch(Exception){}
+            }
+
+			if(forumHasChilds)
+			{
+				var parameters = new NavigationParameters
+				{
+					{"ForumChildsList", forumChilds}
+				}; 
+				await _navigationService.NavigateAsync(new System.Uri("/ForumsPage/", System.UriKind.Relative), parameters); 
+			}
+			else 
+			{
+				var parameters = new NavigationParameters
+                {
+					{"Fid", forum.Fid }
+					,{"ForumName", forum.Name}
+                }; 
+                await _navigationService.NavigateAsync(new System.Uri("/ThreadsPage/", System.UriKind.Relative), parameters); 
+			}
 		}
     }
 }

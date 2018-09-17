@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
-using Prism.Navigation; 
 
 namespace ORAGH.Views
 {

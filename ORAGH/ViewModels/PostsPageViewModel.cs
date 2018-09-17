@@ -13,9 +13,9 @@ namespace ORAGH.ViewModels
 	public class PostsPageViewModel : BaseViewModel, INavigatingAware
 	{
 		INavigationService _navigationService;
-		private ObservableCollection<PostViewData> _posts;
-		private ThreadViewData _threadDetails;
-		private string _message; 
+		ObservableCollection<PostViewData> _posts;
+		ThreadViewData _threadDetails;
+		string _message; 
         public string Message
 		{
 			get { return _message; }
@@ -74,20 +74,17 @@ namespace ORAGH.ViewModels
             {
 				throw new Exception(createPostResponse.StatusCode.ToString()); 
             }
-			else
-			{
-				GetPostsCommand.Execute(null);
-			}
+
+			GetPostsCommand.Execute(null);
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
-			if (parameters.ContainsKey("Tid"))
+			if (parameters.ContainsKey("ThreadViewData"))
 			{
-				ThreadDetails = (ThreadViewData)parameters["Tid"];
+				ThreadDetails = (ThreadViewData)parameters["ThreadViewData"];
 			}
 			GetPostsCommand.Execute(null); 
 		}
-
     }
 }

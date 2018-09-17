@@ -13,7 +13,8 @@ namespace ORAGH.Services
 		Task<HttpResponseMessage> GetActiveThreads();
 		Task<HttpResponseMessage> GetPosts(string threadId);
 		Task<HttpResponseMessage> CreatePost(string username, string password, string threadId, string forumId, string ipaddress, string message);
-		Task<HttpResponseMessage> GetForumChilds(string fid); 
+		Task<HttpResponseMessage> GetForumChilds(string fid);
+		Task<HttpResponseMessage> GetThreads(string fid); 
 		string FixOraghApiResponse(string response);
     }
 }
