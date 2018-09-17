@@ -44,9 +44,6 @@
       <DependentUpon>EntertainmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EntertainmentPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomTabbedPage.xaml.cs">
-      <DependentUpon>CustomTabbedPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Thread.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\ItemTappedEventArgsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\PostsPage.xaml.cs">
@@ -59,6 +56,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\SessionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CreatePostResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PostViewData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrchestraPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
@@ -79,10 +77,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EntertainmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CustomTabbedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

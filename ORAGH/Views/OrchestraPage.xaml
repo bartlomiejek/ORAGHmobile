@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="ORAGH.Views.OrchestraPage"
-             Title="Dział orkiestry"
-             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:c="clr-namespace:ORAGH.Converters;"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ORAGH.Views.OrchestraPage"     
+             Title="Dział orkiestry">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-    <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
-        <Label Text="Strona w budowie" 
-             VerticalOptions="CenterAndExpand" 
-             HorizontalOptions="CenterAndExpand"/>
-         </StackLayout>
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+         
+        <ListView x:Name="ListViewThreads"
+                  ItemsSource="{Binding ForumChilds}"
+                  Footer="">
+            <ListView.Behaviors>
+                           <b:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding GoToChildForumCommand}"
+                                          EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>                 
+                     <Grid>
+                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}" TextColor="DarkRed"/>
+                    </Grid>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
     </ContentPage.Content>
 </ContentPage>
 

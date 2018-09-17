@@ -27,6 +27,9 @@ namespace ORAGH.Services
 		Task<HttpResponseMessage> GetPosts(string threadId);
 
 		[Get("/api.php/createpost?username={username}&password={password}&tid={threadId}&fid={forumId}&ipaddress={ipaddress}&message={message}&apikey=1ad4e29145fb2d970cc3c925f8f981f6")]
-		Task<HttpResponseMessage> CreatePost(string username, string password, string threadId, string forumId, string ipaddress, string message); 
+		Task<HttpResponseMessage> CreatePost(string username, string password, string threadId, string forumId, string ipaddress, string message);
+
+		[Get("/api.php/forum/childs/{fid}?apikey=1ad4e29145fb2d970cc3c925f8f981f6")]
+		Task<HttpResponseMessage> GetForumChilds(string fid); 
     }
 }

@@ -96,6 +96,14 @@ namespace ORAGH.Services.Implementation
 			return await task;
 		}
 
+		public async Task<HttpResponseMessage> GetForumChilds(string fid)
+        {
+            var cts = new CancellationTokenSource();
+			var task = RemoteRequestAsync<HttpResponseMessage>(oraghApi.GetApi(Priority.UserInitiated).GetForumChilds(fid));
+            runningTasks.Add(task.Id, cts);
+            return await task;
+        }
+        
 		public string FixOraghApiResponse(string response)
         {
 			string pattern = @"""\d+"":{";
