@@ -17,6 +17,7 @@ namespace ORAGH
 		{
 			InitializeComponent(); 
 		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
+
 			NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/CustomNavigationPage/LoginPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/CustomNavigationPage/MainPage?selectedTab=ActiveTopicsPage/", System.UriKind.Absolute));
 			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage/", System.UriKind.Absolute));

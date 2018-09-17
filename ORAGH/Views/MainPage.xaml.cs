@@ -5,7 +5,7 @@ using Prism.Navigation;
 
 namespace ORAGH.Views
 {
-	public partial class MainPage : TabbedPage//, INavigatedAware
+	public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
@@ -17,22 +17,5 @@ namespace ORAGH.Views
 		{ 
 			this.Title = this.CurrentPage.Title;        
 		} 
-
-		//public void OnNavigatedFrom(NavigationParameters parameters)
-		//{
-		//	//throw new NotImplementedException();
-		//}
-       
-
-		//public void OnNavigatedTo(NavigationParameters parameters)
-		//{
-		////	throw new NotImplementedException();
-		//}
-
-		//public void OnNavigatingTo(NavigationParameters parameters)
-		//{
-		////	throw new NotImplementedException();
-		//}
-       
 	}
 }

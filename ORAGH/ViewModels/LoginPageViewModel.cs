@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Net;
+using System.Net.Sockets; 
 using Newtonsoft.Json;
 using ORAGH.Models;
 using Prism; 
@@ -32,7 +34,8 @@ namespace ORAGH.ViewModels
 			get { return _username; }
 			set 
 			{
-				_username = value; 
+				_username = value;
+				SessionData.username = value; 
 			}
 		}
 
@@ -43,6 +46,7 @@ namespace ORAGH.ViewModels
 			set
 			{
 				_password = value;
+				SessionData.password = value; 
 			}
 		}
        
@@ -67,14 +71,32 @@ namespace ORAGH.ViewModels
 			else
 			{
 				_isLogged = true;
+				SetIp(); 
 				await GoHome();
 			}
 		}
 
         async Task GoHome()
 		{
+			var parameters = new NavigationParameters
+            {
+				{ "username", _username}
+            };
 			await _navigationService.NavigateAsync(
-				new Uri($"MainPage?selectedTab=HomePage", UriKind.Relative)); 
+				new Uri($"MainPage?selectedTab=ActiveTopicsPage", UriKind.Relative)); 
 		}
+
+		void SetIp()
+		{
+			var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+					SessionData.ip = ip.ToString();
+                }
+            }
+		}
+       
     }
 }

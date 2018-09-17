@@ -28,5 +28,7 @@ namespace ORAGH.Models
             public string deletedposts { get; set; }
             public string attachmentcount { get; set; }
             public string deletetime { get; set; }
+		    public string lastpostdateline { get; set; }
+		    public string forumname { get; set; }
         }
 }

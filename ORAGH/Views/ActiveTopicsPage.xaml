@@ -29,10 +29,10 @@
               <DataTemplate>
                 <ViewCell>                 
                      <Grid>
-                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Subject}" TextColor="Black"/>
-                        <Label Grid.Column="1" Grid.Row="0" Text="" TextColor="Blue"/>
-                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Lastposter}" TextColor="Green"/>
-                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding LastPostDate}" TextColor="Gray"/>
+                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Subject}" FontSize="Small" TextColor="Black"/>
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Forumname}" FontSize="Small" TextColor="DarkRed"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Lastposter}" FontSize="Micro" TextColor="Green"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding LastPostDate}" FontSize="Micro" TextColor="Gray"/>
                     </Grid>
                 </ViewCell>
               </DataTemplate>

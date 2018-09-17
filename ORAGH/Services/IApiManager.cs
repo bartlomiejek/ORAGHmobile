@@ -11,7 +11,8 @@ namespace ORAGH.Services
 		Task<HttpResponseMessage> GetUser(string username);
 		Task<HttpResponseMessage> GetForums();
 		Task<HttpResponseMessage> GetActiveThreads();
-		Task<HttpResponseMessage> GetPosts(string threadId); 
+		Task<HttpResponseMessage> GetPosts(string threadId);
+		Task<HttpResponseMessage> CreatePost(string username, string password, string threadId, string forumId, string ipaddress, string message);
 		string FixOraghApiResponse(string response);
     }
 }

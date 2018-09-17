@@ -88,6 +88,14 @@ namespace ORAGH.Services.Implementation
             return await task;
         }
 
+		public async Task<HttpResponseMessage> CreatePost(string username, string password, string threadId, string forumId, string ipaddress, string message)
+		{
+			var cts = new CancellationTokenSource();
+			var task = RemoteRequestAsync<HttpResponseMessage>(oraghApi.GetApi(Priority.UserInitiated).CreatePost(username, password, threadId, forumId, ipaddress, message));
+			runningTasks.Add(task.Id, cts);
+			return await task;
+		}
+
 		public string FixOraghApiResponse(string response)
         {
 			string pattern = @"""\d+"":{";

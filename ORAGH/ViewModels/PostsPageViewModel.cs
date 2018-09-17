@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using ORAGH.Models;
-using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Forms;
 
@@ -15,10 +13,16 @@ namespace ORAGH.ViewModels
 	public class PostsPageViewModel : BaseViewModel, INavigatingAware
 	{
 		INavigationService _navigationService;
-		private ObservableCollection<Post> _posts;
+		private ObservableCollection<PostViewData> _posts;
 		private ThreadViewData _threadDetails;
+		private string _message; 
+        public string Message
+		{
+			get { return _message; }
+			set { SetProperty(ref _message, value); }
+		}
    
-		public ObservableCollection<Post> Posts
+		public ObservableCollection<PostViewData> Posts
         {
 			get { return _posts; }
 			set { SetProperty(ref _posts, value); }
@@ -31,11 +35,13 @@ namespace ORAGH.ViewModels
         }
 
 		public ICommand GetPostsCommand { get; set; }
+		public ICommand EditorCompletedCommand { get; set; }
 
 		public PostsPageViewModel(INavigationService navigationService)
 		{
 			_navigationService = navigationService;
-			GetPostsCommand = new Command(async () => await RunSafe(GetPosts(), true, "Pobieranie danych"));         
+			GetPostsCommand = new Command(async () => await base.RunSafe(GetPosts(), true, "Pobieranie danych"));
+			EditorCompletedCommand = new Command(async () => await base.RunSafe(SendPost(), true, "Wysyłanie...")); 
 		}
         
 		async Task GetPosts()
@@ -47,12 +53,31 @@ namespace ORAGH.ViewModels
 				var response = await postsResponse.Content.ReadAsStringAsync();
                 response = ApiManager.FixOraghApiResponse(response);
 				var json = JsonConvert.DeserializeObject<List<Post>>(response);
-                Posts = new ObservableCollection<Post>(json);
+				Posts = new ObservableCollection<PostViewData>();
+				foreach( var post in json)
+				{
+					Posts.Add(new PostViewData(post)); 
+				}
             }
             else
             {
                 await PageDialog.AlertAsync("Wystąpił problem podczas pobierania danych", "Błąd", "Ok");
             }
+		}
+        
+        async Task SendPost()
+		{
+			string message = Message;
+			Message = string.Empty; 
+			var createPostResponse = await ApiManager.CreatePost(SessionData.username, SessionData.password, _threadDetails.Tid, _threadDetails.Fid, SessionData.ip, message);
+			if (!createPostResponse.IsSuccessStatusCode)
+            {
+				throw new Exception(createPostResponse.StatusCode.ToString()); 
+            }
+			else
+			{
+				GetPostsCommand.Execute(null);
+			}
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)

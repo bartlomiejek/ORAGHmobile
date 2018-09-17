@@ -61,6 +61,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\ThreadViewData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Implementation\ApiDataParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SessionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CreatePostResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PostViewData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
