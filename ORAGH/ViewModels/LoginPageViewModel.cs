@@ -66,7 +66,8 @@ namespace ORAGH.ViewModels
 			if (!authResponse.IsSuccessStatusCode)
 			{
 				_isLogged = false;
-				await _dialogService.DisplayAlertAsync("Błąd autoryzacji", "Nieprawidłowy login lub hasło.", "Ok"); 
+				if(authResponse.StatusCode == HttpStatusCode.Unauthorized)
+				    await _dialogService.DisplayAlertAsync("Błąd autoryzacji", "Nieprawidłowy login lub hasło.", "Ok"); 
 			}
 			else
 			{

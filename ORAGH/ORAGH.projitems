@@ -16,7 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Models\MakeUp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IApiService.cs" />
@@ -48,10 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\CustomTabbedPage.xaml.cs">
       <DependentUpon>CustomTabbedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Test1.xaml.cs">
-      <DependentUpon>Test1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Test1PageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Thread.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\ItemTappedEventArgsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\PostsPage.xaml.cs">
@@ -88,10 +83,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CustomTabbedPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Test1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

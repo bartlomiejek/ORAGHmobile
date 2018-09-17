@@ -121,7 +121,7 @@ namespace ORAGH.Services.Implementation
 				_userDialogs.Toast(stringResponse, TimeSpan.FromSeconds(1));
 				return data;
 			}
-
+            
 			IsReachable = await _connectivity.IsRemoteReachable(ApiConfig.ApiHostName);
 
 			if (!IsReachable)
