@@ -2,11 +2,11 @@
 
 using Xamarin.Forms;
 
-namespace ORAGH.Views
+namespace ORAGH.ViewModels
 {
-    public class MyPage : ContentPage
+    public class ForumViewModel : ContentPage
     {
-        public MyPage()
+        public ForumViewModel()
         {
             Content = new StackLayout
             {

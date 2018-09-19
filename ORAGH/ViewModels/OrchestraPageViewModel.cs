@@ -73,6 +73,8 @@ namespace ORAGH.ViewModels
 				var parameters = new NavigationParameters
 				{
 					{"ForumChildsList", forumChilds}
+					,{"Fid", forum.Fid }
+                    ,{"ForumName", forum.Name}
 				}; 
 				await _navigationService.NavigateAsync(new System.Uri("/ForumsPage/", System.UriKind.Relative), parameters); 
 			}

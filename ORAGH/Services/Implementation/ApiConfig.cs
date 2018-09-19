@@ -5,8 +5,8 @@ namespace ORAGH.Services.Implementation
 {
     public class ApiConfig
     {
-		public static string ApiOraghUrl = "http://192.168.0.101/mybbclear";
-		public static string ApiUrl = "http://makeup-api.herokuapp.com";
+		public static string ApiOraghUrl = "http://192.168.0.102/mybbclear";
+		public static string ApiUrl = "http://192.168.0.102";//"http://makeup-api.herokuapp.com";
 
         public static string ApiHostName
         {

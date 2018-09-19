@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace ORAGH.Views
 {
-    public partial class MyPage : ContentPage
+    public partial class ForumsPage : ContentPage
     {
-        public MyPage()
+        public ForumsPage()
         {
             InitializeComponent();
         }

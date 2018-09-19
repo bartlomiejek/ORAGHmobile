@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              xmlns:c="clr-namespace:ORAGH.Converters;"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ORAGH.Views.EntertainmentPage"
-             Title="Dział rozrywki">
- <ContentPage.Resources>
+             x:Class="ORAGH.Views.ForumsPage"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
         <ResourceDictionary>
             <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
         </ResourceDictionary>
@@ -19,7 +19,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
          
-        <ListView x:Name="ListViewThreads"
+        <ListView x:Name="ListViewForums"
                   ItemsSource="{Binding ForumChilds}"
                   Footer="">
             <ListView.Behaviors>
@@ -40,4 +40,3 @@
     </Grid>
     </ContentPage.Content>
 </ContentPage>
-

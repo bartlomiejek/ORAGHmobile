@@ -8,6 +8,6 @@ namespace ORAGH.Models
 		public static string username; 
 		public static string password;
 		public static string ip;
-		public enum RootForums { OrchestraSection = 1, };
+		public enum RootForums { OrchestraSection = 1, EntertainmentSection = 4 };
     }   
 }

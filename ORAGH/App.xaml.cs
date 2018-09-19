@@ -15,11 +15,7 @@ namespace ORAGH
 		protected override void OnInitialized()
 		{
 			InitializeComponent(); 
-		    //NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/CustomTabbedPage?selectedTab=Test1Page", System.UriKind.Absolute));
 			NavigationService.NavigateAsync(new Uri("http://ORAGHmobile/CustomNavigationPage/LoginPage/", UriKind.Absolute));
-			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/CustomNavigationPage/MainPage?selectedTab=ActiveTopicsPage/", System.UriKind.Absolute));
-			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/SecActiveTopicsPage/", System.UriKind.Absolute));
-			//NavigationService.NavigateAsync(new System.Uri("http://ORAGHmobile/NavigationPage/PostsPage/", System.UriKind.Absolute));
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -30,7 +26,8 @@ namespace ORAGH
 			containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
 			containerRegistry.RegisterForNavigation<ActiveTopicsPage, ActiveTopicsPageViewModel>();
 			containerRegistry.RegisterForNavigation<OrchestraPage>();
-			containerRegistry.RegisterForNavigation<EntertainmentPage, EntertainmentPageViewModel>();
+			containerRegistry.RegisterForNavigation<EntertainmentPage>();
+			containerRegistry.RegisterForNavigation<ForumsPage>(); 
 			containerRegistry.RegisterForNavigation<ThreadsPage>(); 
 			containerRegistry.RegisterForNavigation<PostsPage>();
 		}
